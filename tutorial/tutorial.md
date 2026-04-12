@@ -14,7 +14,12 @@ Tutorial ini akan memandu Anda membuat aplikasi Sistem Perpustakaan dari NOL men
 8. [Membuat Actions & Services](#8-membuat-actions--services)
 9. [Membuat Filament Resources](#9-membuat-filament-resources)
 10. [Konfigurasi Filament Panel](#10-konfigurasi-filament-panel)
-11. [Testing](#11-testing)
+11. [Jalankan Migration & Seeder](#11-jalankan-migration--seeder)
+12. [Setup Storage](#12-setup-storage)
+13. [Install & Compile Assets](#13-install--compile-assets)
+14. [Testing](#14-testing)
+15. [Struktur Folder Akhir](#15-struktur-folder-akhir)
+16. [Fitur-Fitur yang Sudah Dibuat](#16-fitur-fitur-yang-sudah-dibuat)
 
 ---
 
@@ -121,11 +126,11 @@ php artisan make:model Role -m
 
 **Edit: `database/migrations/xxxx_create_roles_table.php`**
 
-📄 [Copy dari: database/migrations/2024_01_01_000001_create_roles_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000001_create_roles_table.php)
+📄 [Copy dari: database/migrations/2024_01_01_000001_create_roles_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2024_01_01_000001_create_roles_table.php)
 
 **Edit: `app/Models/Role.php`**
 
-📄 [Copy dari: app/Models/Role.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Models/Role.php)
+📄 [Copy dari: app/Models/Role.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Models/Role.php)
 
 ### 5.2. Role User Pivot Table
 
@@ -135,17 +140,17 @@ php artisan make:migration create_role_user_table
 
 **Edit: `database/migrations/xxxx_create_role_user_table.php`**
 
-📄 [Copy dari: database/migrations/2024_01_01_000002_create_role_user_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000002_create_role_user_table.php)
+📄 [Copy dari: database/migrations/2024_01_01_000002_create_role_user_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2024_01_01_000002_create_role_user_table.php)
 
 ### 5.3. Update User Model
 
 **Edit: `app/Models/User.php`**
 
-📄 [Copy dari: app/Models/User.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Models/User.php)
+📄 [Copy dari: app/Models/User.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Models/User.php)
 
 **Edit: `database/migrations/0001_01_01_000000_create_users_table.php`**
 
-📄 [Copy dari: database/migrations/0001_01_01_000000_create_users_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/0001_01_01_000000_create_users_table.php)
+📄 [Copy dari: database/migrations/0001_01_01_000000_create_users_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/0001_01_01_000000_create_users_table.php)
 
 ### 5.4. Admin Profile
 
@@ -155,9 +160,9 @@ php artisan make:model AdminProfile -m
 
 **Edit migration & model:**
 
-📄 [Copy migration dari: database/migrations/2024_01_01_000003_create_admin_profiles_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000003_create_admin_profiles_table.php)
+📄 [Copy migration dari: database/migrations/2024_01_01_000003_create_admin_profiles_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2024_01_01_000003_create_admin_profiles_table.php)
 
-📄 [Copy model dari: app/Models/AdminProfile.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Models/AdminProfile.php)
+📄 [Copy model dari: app/Models/AdminProfile.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Models/AdminProfile.php)
 
 ### 5.5. Member Profile
 
@@ -167,9 +172,9 @@ php artisan make:model MemberProfile -m
 
 **Edit migration & model:**
 
-📄 [Copy migration dari: database/migrations/2024_01_01_000004_create_member_profiles_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000004_create_member_profiles_table.php)
+📄 [Copy migration dari: database/migrations/2024_01_01_000004_create_member_profiles_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2024_01_01_000004_create_member_profiles_table.php)
 
-📄 [Copy model dari: app/Models/MemberProfile.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Models/MemberProfile.php)
+📄 [Copy model dari: app/Models/MemberProfile.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Models/MemberProfile.php)
 
 ### 5.6. Registration
 
@@ -177,9 +182,9 @@ php artisan make:model MemberProfile -m
 php artisan make:model Registration -m
 ```
 
-📄 [Copy migration dari: database/migrations/2024_01_01_000005_create_registrations_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000005_create_registrations_table.php)
+📄 [Copy migration dari: database/migrations/2024_01_01_000005_create_registrations_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2024_01_01_000005_create_registrations_table.php)
 
-📄 [Copy model dari: app/Models/Registration.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Models/Registration.php)
+📄 [Copy model dari: app/Models/Registration.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Models/Registration.php)
 
 ### 5.7. Loan Rule
 
@@ -187,9 +192,9 @@ php artisan make:model Registration -m
 php artisan make:model LoanRule -m
 ```
 
-📄 [Copy migration dari: database/migrations/2024_01_01_000006_create_loan_rules_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000006_create_loan_rules_table.php)
+📄 [Copy migration dari: database/migrations/2024_01_01_000006_create_loan_rules_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2024_01_01_000006_create_loan_rules_table.php)
 
-📄 [Copy model dari: app/Models/LoanRule.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Models/LoanRule.php)
+📄 [Copy model dari: app/Models/LoanRule.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Models/LoanRule.php)
 
 ### 5.8. Genre (Baru!)
 
@@ -197,9 +202,9 @@ php artisan make:model LoanRule -m
 php artisan make:model Genre -m
 ```
 
-📄 [Copy migration dari: database/migrations/2024_01_01_000007_create_genres_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000007_create_genres_table.php)
+📄 [Copy migration dari: database/migrations/2024_01_01_000007_create_genres_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2024_01_01_000007_create_genres_table.php)
 
-📄 [Copy model dari: app/Models/Genre.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Models/Genre.php)
+📄 [Copy model dari: app/Models/Genre.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Models/Genre.php)
 
 ### 5.9. Category
 
@@ -207,9 +212,9 @@ php artisan make:model Genre -m
 php artisan make:model Category -m
 ```
 
-📄 [Copy migration dari: database/migrations/2024_01_01_000007_create_categories_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000007_create_categories_table.php)
+📄 [Copy migration dari: database/migrations/2024_01_01_000007_create_categories_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2024_01_01_000007_create_categories_table.php)
 
-📄 [Copy model dari: app/Models/Category.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Models/Category.php)
+📄 [Copy model dari: app/Models/Category.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Models/Category.php)
 
 ### 5.10. Author
 
@@ -217,9 +222,9 @@ php artisan make:model Category -m
 php artisan make:model Author -m
 ```
 
-📄 [Copy migration dari: database/migrations/2024_01_01_000008_create_authors_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000008_create_authors_table.php)
+📄 [Copy migration dari: database/migrations/2024_01_01_000008_create_authors_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2024_01_01_000008_create_authors_table.php)
 
-📄 [Copy model dari: app/Models/Author.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Models/Author.php)
+📄 [Copy model dari: app/Models/Author.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Models/Author.php)
 
 ### 5.11. Publisher
 
@@ -227,9 +232,9 @@ php artisan make:model Author -m
 php artisan make:model Publisher -m
 ```
 
-📄 [Copy migration dari: database/migrations/2024_01_01_000009_create_publishers_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000009_create_publishers_table.php)
+📄 [Copy migration dari: database/migrations/2024_01_01_000009_create_publishers_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2024_01_01_000009_create_publishers_table.php)
 
-📄 [Copy model dari: app/Models/Publisher.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Models/Publisher.php)
+📄 [Copy model dari: app/Models/Publisher.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Models/Publisher.php)
 
 ### 5.12. Shelf
 
@@ -237,9 +242,9 @@ php artisan make:model Publisher -m
 php artisan make:model Shelf -m
 ```
 
-📄 [Copy migration dari: database/migrations/2024_01_01_000010_create_shelves_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000010_create_shelves_table.php)
+📄 [Copy migration dari: database/migrations/2024_01_01_000010_create_shelves_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2024_01_01_000010_create_shelves_table.php)
 
-📄 [Copy model dari: app/Models/Shelf.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Models/Shelf.php)
+📄 [Copy model dari: app/Models/Shelf.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Models/Shelf.php)
 
 ### 5.13. Book
 
@@ -247,9 +252,9 @@ php artisan make:model Shelf -m
 php artisan make:model Book -m
 ```
 
-📄 [Copy migration dari: database/migrations/2024_01_01_000011_create_books_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000011_create_books_table.php)
+📄 [Copy migration dari: database/migrations/2024_01_01_000011_create_books_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2024_01_01_000011_create_books_table.php)
 
-📄 [Copy model dari: app/Models/Book.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Models/Book.php)
+📄 [Copy model dari: app/Models/Book.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Models/Book.php)
 
 ### 5.14. Book Authors Pivot
 
@@ -257,7 +262,7 @@ php artisan make:model Book -m
 php artisan make:migration create_book_authors_table
 ```
 
-📄 [Copy dari: database/migrations/2024_01_01_000012_create_book_authors_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000012_create_book_authors_table.php)
+📄 [Copy dari: database/migrations/2024_01_01_000012_create_book_authors_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2024_01_01_000012_create_book_authors_table.php)
 
 ### 5.15. Book Genres Pivot (Baru!)
 
@@ -265,67 +270,57 @@ php artisan make:migration create_book_authors_table
 php artisan make:migration create_book_genres_table
 ```
 
-📄 [Copy dari: database/migrations/2024_01_01_000012_create_book_genres_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000012_create_book_genres_table.php)
+📄 [Copy dari: database/migrations/2024_01_01_000012_create_book_genres_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2024_01_01_000012_create_book_genres_table.php)
 
-### 5.16. Book Copy
-
-```bash
-php artisan make:model BookCopy -m
-```
-
-📄 [Copy migration dari: database/migrations/2024_01_01_000013_create_book_copies_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000013_create_book_copies_table.php)
-
-📄 [Copy model dari: app/Models/BookCopy.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Models/BookCopy.php)
-
-### 5.17. Loan
+### 5.16. Loan
 
 ```bash
 php artisan make:model Loan -m
 ```
 
-📄 [Copy migration dari: database/migrations/2024_01_01_000014_create_loans_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000014_create_loans_table.php)
+📄 [Copy migration dari: database/migrations/2024_01_01_000014_create_loans_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2024_01_01_000014_create_loans_table.php)
 
-📄 [Copy model dari: app/Models/Loan.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Models/Loan.php)
+📄 [Copy model dari: app/Models/Loan.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Models/Loan.php)
 
-### 5.18. Loan Detail
+### 5.17. Loan Detail
 
 ```bash
 php artisan make:model LoanDetail -m
 ```
 
-📄 [Copy migration dari: database/migrations/2024_01_01_000015_create_loan_details_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000015_create_loan_details_table.php)
+📄 [Copy migration dari: database/migrations/2024_01_01_000015_create_loan_details_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2024_01_01_000015_create_loan_details_table.php)
 
-📄 [Copy model dari: app/Models/LoanDetail.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Models/LoanDetail.php)
+📄 [Copy model dari: app/Models/LoanDetail.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Models/LoanDetail.php)
 
-### 5.19. Reservation
+### 5.17. Reservation
 
 ```bash
 php artisan make:model Reservation -m
 ```
 
-📄 [Copy migration dari: database/migrations/2024_01_01_000016_create_reservations_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000016_create_reservations_table.php)
+📄 [Copy migration dari: database/migrations/2024_01_01_000016_create_reservations_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2024_01_01_000016_create_reservations_table.php)
 
-📄 [Copy model dari: app/Models/Reservation.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Models/Reservation.php)
+📄 [Copy model dari: app/Models/Reservation.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Models/Reservation.php)
 
-### 5.20. Fine
+### 5.18. Fine
 
 ```bash
 php artisan make:model Fine -m
 ```
 
-📄 [Copy migration dari: database/migrations/2024_01_01_000017_create_fines_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2024_01_01_000017_create_fines_table.php)
+📄 [Copy migration dari: database/migrations/2024_01_01_000017_create_fines_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2024_01_01_000017_create_fines_table.php)
 
-📄 [Copy model dari: app/Models/Fine.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Models/Fine.php)
+📄 [Copy model dari: app/Models/Fine.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Models/Fine.php)
 
-### 5.21. Site Setting
+### 5.19. Site Setting
 
 ```bash
 php artisan make:model SiteSetting -m
 ```
 
-📄 [Copy migration dari: database/migrations/2026_04_10_170641_create_site_settings_table.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/migrations/2026_04_10_170641_create_site_settings_table.php)
+📄 [Copy migration dari: database/migrations/2026_04_10_170641_create_site_settings_table.php](https://github.com/rifqi011/usk-perpus/blob/main/database/migrations/2026_04_10_170641_create_site_settings_table.php)
 
-📄 [Copy model dari: app/Models/SiteSetting.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Models/SiteSetting.php)
+📄 [Copy model dari: app/Models/SiteSetting.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Models/SiteSetting.php)
 
 ---
 
@@ -339,27 +334,27 @@ mkdir app/Enums
 
 Copy semua file dari repository folder `app/Enums/`:
 
-📄 [Copy dari: app/Enums/AccountType.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Enums/AccountType.php)
+📄 [Copy dari: app/Enums/AccountType.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Enums/AccountType.php)
 
-📄 [Copy dari: app/Enums/ActiveStatus.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Enums/ActiveStatus.php)
+📄 [Copy dari: app/Enums/ActiveStatus.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Enums/ActiveStatus.php)
 
-📄 [Copy dari: app/Enums/BookCondition.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Enums/BookCondition.php)
+📄 [Copy dari: app/Enums/BookCondition.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Enums/BookCondition.php)
 
-📄 [Copy dari: app/Enums/CopyStatus.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Enums/CopyStatus.php)
+📄 [Copy dari: app/Enums/CopyStatus.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Enums/CopyStatus.php)
 
-📄 [Copy dari: app/Enums/FineStatus.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Enums/FineStatus.php)
+📄 [Copy dari: app/Enums/FineStatus.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Enums/FineStatus.php)
 
-📄 [Copy dari: app/Enums/FineType.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Enums/FineType.php)
+📄 [Copy dari: app/Enums/FineType.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Enums/FineType.php)
 
-📄 [Copy dari: app/Enums/Gender.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Enums/Gender.php)
+📄 [Copy dari: app/Enums/Gender.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Enums/Gender.php)
 
-📄 [Copy dari: app/Enums/LoanStatus.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Enums/LoanStatus.php)
+📄 [Copy dari: app/Enums/LoanStatus.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Enums/LoanStatus.php)
 
-📄 [Copy dari: app/Enums/MembershipStatus.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Enums/MembershipStatus.php)
+📄 [Copy dari: app/Enums/MembershipStatus.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Enums/MembershipStatus.php)
 
-📄 [Copy dari: app/Enums/RegistrationStatus.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Enums/RegistrationStatus.php)
+📄 [Copy dari: app/Enums/RegistrationStatus.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Enums/RegistrationStatus.php)
 
-📄 [Copy dari: app/Enums/ReservationStatus.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Enums/ReservationStatus.php)
+📄 [Copy dari: app/Enums/ReservationStatus.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Enums/ReservationStatus.php)
 
 ---
 
@@ -373,7 +368,7 @@ php artisan make:seeder RoleSeeder
 
 **Edit: `database/seeders/RoleSeeder.php`**
 
-📄 [Copy dari: database/seeders/RoleSeeder.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/seeders/RoleSeeder.php)
+📄 [Copy dari: database/seeders/RoleSeeder.php](https://github.com/rifqi011/usk-perpus/blob/main/database/seeders/RoleSeeder.php)
 
 ### 7.2. Super Admin Seeder
 
@@ -383,7 +378,7 @@ php artisan make:seeder SuperAdminSeeder
 
 **Edit: `database/seeders/SuperAdminSeeder.php`**
 
-📄 [Copy dari: database/seeders/SuperAdminSeeder.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/seeders/SuperAdminSeeder.php)
+📄 [Copy dari: database/seeders/SuperAdminSeeder.php](https://github.com/rifqi011/usk-perpus/blob/main/database/seeders/SuperAdminSeeder.php)
 
 ### 7.3. Loan Rule Seeder
 
@@ -393,7 +388,7 @@ php artisan make:seeder LoanRuleSeeder
 
 **Edit: `database/seeders/LoanRuleSeeder.php`**
 
-📄 [Copy dari: database/seeders/LoanRuleSeeder.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/seeders/LoanRuleSeeder.php)
+📄 [Copy dari: database/seeders/LoanRuleSeeder.php](https://github.com/rifqi011/usk-perpus/blob/main/database/seeders/LoanRuleSeeder.php)
 
 ### 7.4. Site Setting Seeder
 
@@ -403,13 +398,13 @@ php artisan make:seeder SiteSettingSeeder
 
 **Edit: `database/seeders/SiteSettingSeeder.php`**
 
-📄 [Copy dari: database/seeders/SiteSettingSeeder.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/seeders/SiteSettingSeeder.php)
+📄 [Copy dari: database/seeders/SiteSettingSeeder.php](https://github.com/rifqi011/usk-perpus/blob/main/database/seeders/SiteSettingSeeder.php)
 
 ### 7.5. Update Database Seeder
 
 **Edit: `database/seeders/DatabaseSeeder.php`**
 
-📄 [Copy dari: database/seeders/DatabaseSeeder.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/database/seeders/DatabaseSeeder.php)
+📄 [Copy dari: database/seeders/DatabaseSeeder.php](https://github.com/rifqi011/usk-perpus/blob/main/database/seeders/DatabaseSeeder.php)
 
 ---
 
@@ -425,21 +420,21 @@ mkdir -p app/Actions/Reservation
 
 ### 8.2. Loan Actions
 
-📄 [Copy dari: app/Actions/Loan/CalculateFineAction.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Actions/Loan/CalculateFineAction.php)
+📄 [Copy dari: app/Actions/Loan/CalculateFineAction.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Actions/Loan/CalculateFineAction.php)
 
-📄 [Copy dari: app/Actions/Loan/CreateLoanAction.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Actions/Loan/CreateLoanAction.php)
+📄 [Copy dari: app/Actions/Loan/CreateLoanAction.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Actions/Loan/CreateLoanAction.php)
 
-📄 [Copy dari: app/Actions/Loan/ProcessReturnAction.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Actions/Loan/ProcessReturnAction.php)
+📄 [Copy dari: app/Actions/Loan/ProcessReturnAction.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Actions/Loan/ProcessReturnAction.php)
 
 ### 8.3. Member Actions
 
-📄 [Copy dari: app/Actions/Member/ApproveRegistrationAction.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Actions/Member/ApproveRegistrationAction.php)
+📄 [Copy dari: app/Actions/Member/ApproveRegistrationAction.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Actions/Member/ApproveRegistrationAction.php)
 
-📄 [Copy dari: app/Actions/Member/RejectRegistrationAction.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Actions/Member/RejectRegistrationAction.php)
+📄 [Copy dari: app/Actions/Member/RejectRegistrationAction.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Actions/Member/RejectRegistrationAction.php)
 
 ### 8.4. Reservation Actions
 
-📄 [Copy dari: app/Actions/Reservation/CreateReservationAction.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Actions/Reservation/CreateReservationAction.php)
+📄 [Copy dari: app/Actions/Reservation/CreateReservationAction.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Actions/Reservation/CreateReservationAction.php)
 
 ### 8.5. Services
 
@@ -447,11 +442,11 @@ mkdir -p app/Actions/Reservation
 mkdir app/Services
 ```
 
-📄 [Copy dari: app/Services/LoanService.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Services/LoanService.php)
+📄 [Copy dari: app/Services/LoanService.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Services/LoanService.php)
 
-📄 [Copy dari: app/Services/FineService.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Services/FineService.php)
+📄 [Copy dari: app/Services/FineService.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Services/FineService.php)
 
-📄 [Copy dari: app/Services/ReservationService.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Services/ReservationService.php)
+📄 [Copy dari: app/Services/ReservationService.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Services/ReservationService.php)
 
 ---
 
@@ -469,13 +464,13 @@ Pilih:
 
 **Edit files:**
 
-📄 [Copy dari: app/Filament/Resources/AdminResource.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/AdminResource.php)
+📄 [Copy dari: app/Filament/Resources/AdminResource.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/AdminResource.php)
 
-📄 [Copy dari: app/Filament/Resources/AdminResource/Pages/CreateAdmin.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/AdminResource/Pages/CreateAdmin.php)
+📄 [Copy dari: app/Filament/Resources/AdminResource/Pages/CreateAdmin.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/AdminResource/Pages/CreateAdmin.php)
 
-📄 [Copy dari: app/Filament/Resources/AdminResource/Pages/EditAdmin.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/AdminResource/Pages/EditAdmin.php)
+📄 [Copy dari: app/Filament/Resources/AdminResource/Pages/EditAdmin.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/AdminResource/Pages/EditAdmin.php)
 
-📄 [Copy dari: app/Filament/Resources/AdminResource/Pages/ListAdmins.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/AdminResource/Pages/ListAdmins.php)
+📄 [Copy dari: app/Filament/Resources/AdminResource/Pages/ListAdmins.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/AdminResource/Pages/ListAdmins.php)
 
 ### 9.2. Member Profile Resource
 
@@ -483,15 +478,15 @@ Pilih:
 php artisan make:filament-resource MemberProfile --generate
 ```
 
-📄 [Copy dari: app/Filament/Resources/MemberProfileResource.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/MemberProfileResource.php)
+📄 [Copy dari: app/Filament/Resources/MemberProfileResource.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/MemberProfileResource.php)
 
-📄 [Copy dari: app/Filament/Resources/MemberProfileResource/Pages/CreateMemberProfile.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/MemberProfileResource/Pages/CreateMemberProfile.php)
+📄 [Copy dari: app/Filament/Resources/MemberProfileResource/Pages/CreateMemberProfile.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/MemberProfileResource/Pages/CreateMemberProfile.php)
 
-📄 [Copy dari: app/Filament/Resources/MemberProfileResource/Pages/EditMemberProfile.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/MemberProfileResource/Pages/EditMemberProfile.php)
+📄 [Copy dari: app/Filament/Resources/MemberProfileResource/Pages/EditMemberProfile.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/MemberProfileResource/Pages/EditMemberProfile.php)
 
-📄 [Copy dari: app/Filament/Resources/MemberProfileResource/Pages/ListMemberProfiles.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/MemberProfileResource/Pages/ListMemberProfiles.php)
+📄 [Copy dari: app/Filament/Resources/MemberProfileResource/Pages/ListMemberProfiles.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/MemberProfileResource/Pages/ListMemberProfiles.php)
 
-📄 [Copy dari: app/Filament/Resources/MemberProfileResource/Pages/ViewMemberProfile.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/MemberProfileResource/Pages/ViewMemberProfile.php)
+📄 [Copy dari: app/Filament/Resources/MemberProfileResource/Pages/ViewMemberProfile.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/MemberProfileResource/Pages/ViewMemberProfile.php)
 
 ### 9.3. Registration Resource
 
@@ -499,11 +494,11 @@ php artisan make:filament-resource MemberProfile --generate
 php artisan make:filament-resource Registration --generate
 ```
 
-📄 [Copy dari: app/Filament/Resources/RegistrationResource.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/RegistrationResource.php)
+📄 [Copy dari: app/Filament/Resources/RegistrationResource.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/RegistrationResource.php)
 
-📄 [Copy dari: app/Filament/Resources/RegistrationResource/Pages/ListRegistrations.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/RegistrationResource/Pages/ListRegistrations.php)
+📄 [Copy dari: app/Filament/Resources/RegistrationResource/Pages/ListRegistrations.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/RegistrationResource/Pages/ListRegistrations.php)
 
-📄 [Copy dari: app/Filament/Resources/RegistrationResource/Pages/ViewRegistration.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/RegistrationResource/Pages/ViewRegistration.php)
+📄 [Copy dari: app/Filament/Resources/RegistrationResource/Pages/ViewRegistration.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/RegistrationResource/Pages/ViewRegistration.php)
 
 ### 9.4. Category Resource
 
@@ -511,13 +506,13 @@ php artisan make:filament-resource Registration --generate
 php artisan make:filament-resource Category --generate
 ```
 
-📄 [Copy dari: app/Filament/Resources/CategoryResource.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/CategoryResource.php)
+📄 [Copy dari: app/Filament/Resources/CategoryResource.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/CategoryResource.php)
 
-📄 [Copy dari: app/Filament/Resources/CategoryResource/Pages/CreateCategory.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/CategoryResource/Pages/CreateCategory.php)
+📄 [Copy dari: app/Filament/Resources/CategoryResource/Pages/CreateCategory.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/CategoryResource/Pages/CreateCategory.php)
 
-📄 [Copy dari: app/Filament/Resources/CategoryResource/Pages/EditCategory.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/CategoryResource/Pages/EditCategory.php)
+📄 [Copy dari: app/Filament/Resources/CategoryResource/Pages/EditCategory.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/CategoryResource/Pages/EditCategory.php)
 
-📄 [Copy dari: app/Filament/Resources/CategoryResource/Pages/ListCategories.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/CategoryResource/Pages/ListCategories.php)
+📄 [Copy dari: app/Filament/Resources/CategoryResource/Pages/ListCategories.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/CategoryResource/Pages/ListCategories.php)
 
 ### 9.5. Genre Resource (Baru!)
 
@@ -525,13 +520,13 @@ php artisan make:filament-resource Category --generate
 php artisan make:filament-resource Genre --generate
 ```
 
-📄 [Copy dari: app/Filament/Resources/GenreResource.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/GenreResource.php)
+📄 [Copy dari: app/Filament/Resources/GenreResource.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/GenreResource.php)
 
-📄 [Copy dari: app/Filament/Resources/GenreResource/Pages/CreateGenre.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/GenreResource/Pages/CreateGenre.php)
+📄 [Copy dari: app/Filament/Resources/GenreResource/Pages/CreateGenre.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/GenreResource/Pages/CreateGenre.php)
 
-📄 [Copy dari: app/Filament/Resources/GenreResource/Pages/EditGenre.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/GenreResource/Pages/EditGenre.php)
+📄 [Copy dari: app/Filament/Resources/GenreResource/Pages/EditGenre.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/GenreResource/Pages/EditGenre.php)
 
-📄 [Copy dari: app/Filament/Resources/GenreResource/Pages/ListGenres.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/GenreResource/Pages/ListGenres.php)
+📄 [Copy dari: app/Filament/Resources/GenreResource/Pages/ListGenres.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/GenreResource/Pages/ListGenres.php)
 
 ### 9.6. Author Resource
 
@@ -539,13 +534,13 @@ php artisan make:filament-resource Genre --generate
 php artisan make:filament-resource Author --generate
 ```
 
-📄 [Copy dari: app/Filament/Resources/AuthorResource.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/AuthorResource.php)
+📄 [Copy dari: app/Filament/Resources/AuthorResource.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/AuthorResource.php)
 
-📄 [Copy dari: app/Filament/Resources/AuthorResource/Pages/CreateAuthor.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/AuthorResource/Pages/CreateAuthor.php)
+📄 [Copy dari: app/Filament/Resources/AuthorResource/Pages/CreateAuthor.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/AuthorResource/Pages/CreateAuthor.php)
 
-📄 [Copy dari: app/Filament/Resources/AuthorResource/Pages/EditAuthor.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/AuthorResource/Pages/EditAuthor.php)
+📄 [Copy dari: app/Filament/Resources/AuthorResource/Pages/EditAuthor.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/AuthorResource/Pages/EditAuthor.php)
 
-📄 [Copy dari: app/Filament/Resources/AuthorResource/Pages/ListAuthors.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/AuthorResource/Pages/ListAuthors.php)
+📄 [Copy dari: app/Filament/Resources/AuthorResource/Pages/ListAuthors.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/AuthorResource/Pages/ListAuthors.php)
 
 ### 9.7. Publisher Resource
 
@@ -553,13 +548,13 @@ php artisan make:filament-resource Author --generate
 php artisan make:filament-resource Publisher --generate
 ```
 
-📄 [Copy dari: app/Filament/Resources/PublisherResource.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/PublisherResource.php)
+📄 [Copy dari: app/Filament/Resources/PublisherResource.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/PublisherResource.php)
 
-📄 [Copy dari: app/Filament/Resources/PublisherResource/Pages/CreatePublisher.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/PublisherResource/Pages/CreatePublisher.php)
+📄 [Copy dari: app/Filament/Resources/PublisherResource/Pages/CreatePublisher.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/PublisherResource/Pages/CreatePublisher.php)
 
-📄 [Copy dari: app/Filament/Resources/PublisherResource/Pages/EditPublisher.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/PublisherResource/Pages/EditPublisher.php)
+📄 [Copy dari: app/Filament/Resources/PublisherResource/Pages/EditPublisher.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/PublisherResource/Pages/EditPublisher.php)
 
-📄 [Copy dari: app/Filament/Resources/PublisherResource/Pages/ListPublishers.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/PublisherResource/Pages/ListPublishers.php)
+📄 [Copy dari: app/Filament/Resources/PublisherResource/Pages/ListPublishers.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/PublisherResource/Pages/ListPublishers.php)
 
 ### 9.8. Shelf Resource
 
@@ -567,13 +562,13 @@ php artisan make:filament-resource Publisher --generate
 php artisan make:filament-resource Shelf --generate
 ```
 
-📄 [Copy dari: app/Filament/Resources/ShelfResource.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/ShelfResource.php)
+📄 [Copy dari: app/Filament/Resources/ShelfResource.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/ShelfResource.php)
 
-📄 [Copy dari: app/Filament/Resources/ShelfResource/Pages/CreateShelf.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/ShelfResource/Pages/CreateShelf.php)
+📄 [Copy dari: app/Filament/Resources/ShelfResource/Pages/CreateShelf.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/ShelfResource/Pages/CreateShelf.php)
 
-📄 [Copy dari: app/Filament/Resources/ShelfResource/Pages/EditShelf.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/ShelfResource/Pages/EditShelf.php)
+📄 [Copy dari: app/Filament/Resources/ShelfResource/Pages/EditShelf.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/ShelfResource/Pages/EditShelf.php)
 
-📄 [Copy dari: app/Filament/Resources/ShelfResource/Pages/ListShelves.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/ShelfResource/Pages/ListShelves.php)
+📄 [Copy dari: app/Filament/Resources/ShelfResource/Pages/ListShelves.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/ShelfResource/Pages/ListShelves.php)
 
 ### 9.9. Book Resource
 
@@ -581,15 +576,15 @@ php artisan make:filament-resource Shelf --generate
 php artisan make:filament-resource Book --generate
 ```
 
-📄 [Copy dari: app/Filament/Resources/BookResource.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/BookResource.php)
+📄 [Copy dari: app/Filament/Resources/BookResource.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/BookResource.php)
 
-📄 [Copy dari: app/Filament/Resources/BookResource/Pages/CreateBook.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/BookResource/Pages/CreateBook.php)
+📄 [Copy dari: app/Filament/Resources/BookResource/Pages/CreateBook.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/BookResource/Pages/CreateBook.php)
 
-📄 [Copy dari: app/Filament/Resources/BookResource/Pages/EditBook.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/BookResource/Pages/EditBook.php)
+📄 [Copy dari: app/Filament/Resources/BookResource/Pages/EditBook.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/BookResource/Pages/EditBook.php)
 
-📄 [Copy dari: app/Filament/Resources/BookResource/Pages/ListBooks.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/BookResource/Pages/ListBooks.php)
+📄 [Copy dari: app/Filament/Resources/BookResource/Pages/ListBooks.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/BookResource/Pages/ListBooks.php)
 
-📄 [Copy dari: app/Filament/Resources/BookResource/Pages/ViewBook.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/BookResource/Pages/ViewBook.php)
+📄 [Copy dari: app/Filament/Resources/BookResource/Pages/ViewBook.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/BookResource/Pages/ViewBook.php)
 
 ### 9.10. Loan Resource
 
@@ -597,13 +592,13 @@ php artisan make:filament-resource Book --generate
 php artisan make:filament-resource Loan --generate
 ```
 
-📄 [Copy dari: app/Filament/Resources/LoanResource.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/LoanResource.php)
+📄 [Copy dari: app/Filament/Resources/LoanResource.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/LoanResource.php)
 
-📄 [Copy dari: app/Filament/Resources/LoanResource/Pages/CreateLoan.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/LoanResource/Pages/CreateLoan.php)
+📄 [Copy dari: app/Filament/Resources/LoanResource/Pages/CreateLoan.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/LoanResource/Pages/CreateLoan.php)
 
-📄 [Copy dari: app/Filament/Resources/LoanResource/Pages/ListLoans.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/LoanResource/Pages/ListLoans.php)
+📄 [Copy dari: app/Filament/Resources/LoanResource/Pages/ListLoans.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/LoanResource/Pages/ListLoans.php)
 
-📄 [Copy dari: app/Filament/Resources/LoanResource/Pages/ViewLoan.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/LoanResource/Pages/ViewLoan.php)
+📄 [Copy dari: app/Filament/Resources/LoanResource/Pages/ViewLoan.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/LoanResource/Pages/ViewLoan.php)
 
 ### 9.11. Loan Rule Resource
 
@@ -611,13 +606,13 @@ php artisan make:filament-resource Loan --generate
 php artisan make:filament-resource LoanRule --generate
 ```
 
-📄 [Copy dari: app/Filament/Resources/LoanRuleResource.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/LoanRuleResource.php)
+📄 [Copy dari: app/Filament/Resources/LoanRuleResource.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/LoanRuleResource.php)
 
-📄 [Copy dari: app/Filament/Resources/LoanRuleResource/Pages/CreateLoanRule.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/LoanRuleResource/Pages/CreateLoanRule.php)
+📄 [Copy dari: app/Filament/Resources/LoanRuleResource/Pages/CreateLoanRule.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/LoanRuleResource/Pages/CreateLoanRule.php)
 
-📄 [Copy dari: app/Filament/Resources/LoanRuleResource/Pages/EditLoanRule.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/LoanRuleResource/Pages/EditLoanRule.php)
+📄 [Copy dari: app/Filament/Resources/LoanRuleResource/Pages/EditLoanRule.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/LoanRuleResource/Pages/EditLoanRule.php)
 
-📄 [Copy dari: app/Filament/Resources/LoanRuleResource/Pages/ListLoanRules.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/LoanRuleResource/Pages/ListLoanRules.php)
+📄 [Copy dari: app/Filament/Resources/LoanRuleResource/Pages/ListLoanRules.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/LoanRuleResource/Pages/ListLoanRules.php)
 
 ### 9.12. Fine Resource
 
@@ -625,17 +620,17 @@ php artisan make:filament-resource LoanRule --generate
 php artisan make:filament-resource Fine --generate
 ```
 
-📄 [Copy dari: app/Filament/Resources/FineResource.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/FineResource.php)
+📄 [Copy dari: app/Filament/Resources/FineResource.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/FineResource.php)
 
-📄 [Copy dari: app/Filament/Resources/FineResource/Pages/ListFines.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/FineResource/Pages/ListFines.php)
+📄 [Copy dari: app/Filament/Resources/FineResource/Pages/ListFines.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/FineResource/Pages/ListFines.php)
 
 ### 9.13. Site Setting Resource
 
 Buat manual karena ini single record.
 
-📄 [Copy dari: app/Filament/Resources/SiteSettingResource.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/SiteSettingResource.php)
+📄 [Copy dari: app/Filament/Resources/SiteSettingResource.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/SiteSettingResource.php)
 
-📄 [Copy dari: app/Filament/Resources/SiteSettingResource/Pages/ManageSiteSettings.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Resources/SiteSettingResource/Pages/ManageSiteSettings.php)
+📄 [Copy dari: app/Filament/Resources/SiteSettingResource/Pages/ManageSiteSettings.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/SiteSettingResource/Pages/ManageSiteSettings.php)
 
 ### 9.14. Admin Profile Page
 
@@ -643,13 +638,13 @@ Buat manual karena ini single record.
 php artisan make:filament-page AdminProfile
 ```
 
-📄 [Copy dari: app/Filament/Pages/AdminProfile.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Pages/AdminProfile.php)
+📄 [Copy dari: app/Filament/Pages/AdminProfile.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Pages/AdminProfile.php)
 
-📄 [Copy dari: resources/views/filament/pages/admin-profile.blade.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/resources/views/filament/pages/admin-profile.blade.php)
+📄 [Copy dari: resources/views/filament/pages/admin-profile.blade.php](https://github.com/rifqi011/usk-perpus/blob/main/resources/views/filament/pages/admin-profile.blade.php)
 
 ### 9.15. Dashboard Page
 
-📄 [Copy dari: app/Filament/Pages/Dashboard.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Filament/Pages/Dashboard.php)
+📄 [Copy dari: app/Filament/Pages/Dashboard.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Pages/Dashboard.php)
 
 ---
 
@@ -659,7 +654,7 @@ php artisan make:filament-page AdminProfile
 
 **Edit: `app/Providers/Filament/AdminPanelProvider.php`**
 
-📄 [Copy dari: app/Providers/Filament/AdminPanelProvider.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Providers/Filament/AdminPanelProvider.php)
+📄 [Copy dari: app/Providers/Filament/AdminPanelProvider.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Providers/Filament/AdminPanelProvider.php)
 
 ### 10.2. Buat Middleware
 
@@ -669,13 +664,13 @@ php artisan make:middleware EnsureUserIsAdmin
 
 **Edit: `app/Http/Middleware/EnsureUserIsAdmin.php`**
 
-📄 [Copy dari: app/Http/Middleware/EnsureUserIsAdmin.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/app/Http/Middleware/EnsureUserIsAdmin.php)
+📄 [Copy dari: app/Http/Middleware/EnsureUserIsAdmin.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Http/Middleware/EnsureUserIsAdmin.php)
 
 ### 10.3. Register Middleware
 
 **Edit: `bootstrap/app.php`**
 
-📄 [Copy dari: bootstrap/app.php](https://github.com/rifqi011/usk-perpus/blob/main/library-app/bootstrap/app.php)
+📄 [Copy dari: bootstrap/app.php](https://github.com/rifqi011/usk-perpus/blob/main/bootstrap/app.php)
 
 Atau tambahkan manual:
 
@@ -749,7 +744,7 @@ Password: password
 6. ✅ Buat penerbit baru
 7. ✅ Buat buku baru (dengan SKU, stok awal, multiple genres)
 8. ✅ Buat anggota baru (kode member auto-generate)
-9. ✅ Buat peminjaman (multiple books dengan repeater)
+9. ✅ Buat peminjaman → select buku langsung dari stok yang tersedia
 10. ✅ Proses pengembalian
 11. ✅ Upload logo di Site Settings
 12. ✅ Edit profil admin
@@ -793,7 +788,7 @@ library-app/
 │   │       ├── BookResource/
 │   │       ├── CategoryResource/
 │   │       ├── FineResource/
-│   │       ├── GenreResource/ (Baru!)
+│   │       ├── GenreResource/
 │   │       ├── LoanResource/
 │   │       ├── LoanRuleResource/
 │   │       ├── MemberProfileResource/
@@ -808,10 +803,9 @@ library-app/
 │   │   ├── AdminProfile.php
 │   │   ├── Author.php
 │   │   ├── Book.php
-│   │   ├── BookCopy.php
 │   │   ├── Category.php
 │   │   ├── Fine.php
-│   │   ├── Genre.php (Baru!)
+│   │   ├── Genre.php
 │   │   ├── Loan.php
 │   │   ├── LoanDetail.php
 │   │   ├── LoanRule.php
@@ -827,7 +821,9 @@ library-app/
 │   │   └── Filament/
 │   │       └── AdminPanelProvider.php
 │   └── Services/
-│       └── LoanService.php
+│       ├── FineService.php
+│       ├── LoanService.php
+│       └── ReservationService.php
 ├── database/
 │   ├── migrations/
 │   │   ├── 0001_01_01_000000_create_users_table.php
@@ -837,19 +833,18 @@ library-app/
 │   │   ├── 2024_01_01_000004_create_member_profiles_table.php
 │   │   ├── 2024_01_01_000005_create_registrations_table.php
 │   │   ├── 2024_01_01_000006_create_loan_rules_table.php
-│   │   ├── 2024_01_01_000007_create_genres_table.php (Baru!)
+│   │   ├── 2024_01_01_000007_create_genres_table.php
 │   │   ├── 2024_01_01_000007_create_categories_table.php
 │   │   ├── 2024_01_01_000008_create_authors_table.php
 │   │   ├── 2024_01_01_000009_create_publishers_table.php
 │   │   ├── 2024_01_01_000010_create_shelves_table.php
 │   │   ├── 2024_01_01_000011_create_books_table.php
 │   │   ├── 2024_01_01_000012_create_book_authors_table.php
-│   │   ├── 2024_01_01_000012_create_book_genres_table.php (Baru!)
-│   │   ├── 2024_01_01_000013_create_book_copies_table.php
-│   │   ├── 2024_01_01_000014_create_loans_table.php
-│   │   ├── 2024_01_01_000015_create_loan_details_table.php
-│   │   ├── 2024_01_01_000016_create_reservations_table.php
-│   │   ├── 2024_01_01_000017_create_fines_table.php
+│   │   ├── 2024_01_01_000012_create_book_genres_table.php
+│   │   ├── 2024_01_01_000013_create_loans_table.php
+│   │   ├── 2024_01_01_000014_create_loan_details_table.php
+│   │   ├── 2024_01_01_000015_create_reservations_table.php
+│   │   ├── 2024_01_01_000016_create_fines_table.php
 │   │   └── 2026_04_10_170641_create_site_settings_table.php
 │   └── seeders/
 │       ├── DatabaseSeeder.php
@@ -876,15 +871,15 @@ library-app/
 
 ### ✅ Master Data
 - Kategori
-- **Genre** (many-to-many dengan Book)
+- Genre (many-to-many dengan Book)
 - Penulis (dengan sosial media: Facebook, Twitter, Instagram, LinkedIn)
 - Penerbit
 - Rak
-- Buku (dengan **SKU**, **stok awal**, multiple authors, multiple genres)
+- Buku (dengan SKU, stok awal, multiple authors, multiple genres)
 
 ### ✅ Transaksi
-- **Peminjaman dengan multiple books** (menggunakan Repeater)
-- Pengembalian dengan perhitungan denda
+- **Peminjaman dengan multiple books** (menggunakan Repeater, select langsung dari stok buku)
+- Pengembalian dengan perhitungan denda keterlambatan
 - Reservasi
 - Denda
 
@@ -984,6 +979,7 @@ Anda telah berhasil membuat Sistem Perpustakaan lengkap dengan fitur:
 ✅ Genre system (many-to-many)
 ✅ Author dengan sosial media
 ✅ Book dengan SKU & stok awal
+✅ Peminjaman langsung dari stok buku
 ✅ Member dengan kode otomatis
 ✅ Admin profile management
 ✅ Dynamic branding
