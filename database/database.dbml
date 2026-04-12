@@ -1,0 +1,334 @@
+Project library_system {
+  database_type: "MySQL"
+  Note: '''
+  Sistem perpustakaan:
+  - users untuk login semua akun
+  - account_type memisahkan admin dan anggota
+  - role hanya untuk admin
+  - level admin: superadmin dan admin
+  - anggota mendaftar mandiri, admin tidak
+  - soft delete dipakai pada tabel master, profil, dan pendaftaran
+  '''
+}
+
+Table users {
+  id bigint [pk, increment]
+  name varchar(255) [not null]
+  email varchar(255) [not null, unique]
+  password varchar(255) [not null]
+  account_type enum('admin','member') [not null]
+  email_verified_at timestamp
+  is_active boolean [not null, default: true]
+  remember_token varchar(100)
+  last_login_at timestamp
+  created_at timestamp
+  updated_at timestamp
+  deleted_at timestamp
+
+  Note: '''
+  Tabel login utama.
+  - admin => wajib punya admin_profile
+  - member => wajib punya member_profile
+  - soft delete aktif
+  '''
+}
+
+Table roles {
+  id bigint [pk, increment]
+  name varchar(100) [not null, unique]
+  code varchar(50) [not null, unique]
+  description text
+  created_at timestamp
+  updated_at timestamp
+  deleted_at timestamp
+
+  Note: '''
+  Role hanya untuk admin.
+  Contoh data:
+  - Super Admin | superadmin
+  - Admin | admin
+  - soft delete aktif
+  '''
+}
+
+Table role_user {
+  id bigint [pk, increment]
+  user_id bigint [not null, unique]
+  role_id bigint [not null]
+  created_at timestamp
+  updated_at timestamp
+
+  Note: '''
+  Hanya untuk users.account_type = admin.
+  Tidak pakai soft delete agar relasi role tetap sederhana.
+  '''
+}
+
+Table admin_profiles {
+  id bigint [pk, increment]
+  user_id bigint [not null, unique]
+  full_name varchar(255) [not null]
+  phone_number varchar(30)
+  photo varchar(255)
+  position varchar(100)
+  created_at timestamp
+  updated_at timestamp
+  deleted_at timestamp
+
+  Note: 'Profil admin/petugas perpustakaan, soft delete aktif'
+}
+
+Table member_profiles {
+  id bigint [pk, increment]
+  user_id bigint [not null, unique]
+  member_code varchar(50) [not null, unique]
+  identity_number varchar(100)
+  full_name varchar(255) [not null]
+  gender enum('L','P')
+  birth_place varchar(100)
+  birth_date date
+  phone_number varchar(30)
+  address text
+  photo varchar(255)
+  registration_date date [not null]
+  membership_status enum('pending','active','suspended','inactive') [not null, default: 'pending']
+  valid_until date
+  created_at timestamp
+  updated_at timestamp
+  deleted_at timestamp
+
+  Note: 'Profil anggota perpustakaan, soft delete aktif'
+}
+
+Table registrations {
+  id bigint [pk, increment]
+  user_id bigint [unique]
+  full_name varchar(255) [not null]
+  email varchar(255) [not null]
+  password varchar(255) [not null]
+  phone_number varchar(30)
+  address text
+  identity_number varchar(100)
+  status enum('pending','approved','rejected') [not null, default: 'pending']
+  rejection_reason text
+  approved_by bigint
+  approved_at timestamp
+  created_at timestamp
+  updated_at timestamp
+  deleted_at timestamp
+
+  Note: '''
+  Pendaftaran mandiri hanya untuk anggota.
+  Soft delete aktif.
+  '''
+}
+
+Table authors {
+  id bigint [pk, increment]
+  name varchar(255) [not null]
+  slug varchar(255) [not null, unique]
+  photo varchar(255)
+  about text
+  nationality varchar(100)
+  email varchar(255)
+  status enum('active','inactive') [not null, default: 'active']
+  created_at timestamp
+  updated_at timestamp
+  deleted_at timestamp
+
+  Note: 'Master penulis, soft delete aktif'
+}
+
+Table publishers {
+  id bigint [pk, increment]
+  name varchar(255) [not null]
+  slug varchar(255) [not null, unique]
+  address text
+  phone varchar(30)
+  email varchar(255)
+  website varchar(255)
+  status enum('active','inactive') [not null, default: 'active']
+  created_at timestamp
+  updated_at timestamp
+  deleted_at timestamp
+
+  Note: 'Master penerbit, soft delete aktif'
+}
+
+Table categories {
+  id bigint [pk, increment]
+  name varchar(255) [not null]
+  slug varchar(255) [not null, unique]
+  description text
+  status enum('active','inactive') [not null, default: 'active']
+  created_at timestamp
+  updated_at timestamp
+  deleted_at timestamp
+
+  Note: 'Master kategori, soft delete aktif'
+}
+
+Table shelves {
+  id bigint [pk, increment]
+  code varchar(50) [not null, unique]
+  name varchar(100) [not null]
+  location_description text
+  status enum('active','inactive') [not null, default: 'active']
+  created_at timestamp
+  updated_at timestamp
+  deleted_at timestamp
+
+  Note: 'Master rak/lokasi buku, soft delete aktif'
+}
+
+Table books {
+  id bigint [pk, increment]
+  category_id bigint [not null]
+  publisher_id bigint [not null]
+  shelf_id bigint
+  title varchar(255) [not null]
+  slug varchar(255) [not null, unique]
+  isbn varchar(50)
+  year year
+  edition varchar(50)
+  language varchar(50)
+  page_count int
+  description text
+  synopsis text
+  cover_image varchar(255)
+  stock int [not null, default: 0]
+  available_stock int [not null, default: 0]
+  status enum('active','inactive') [not null, default: 'active']
+  created_at timestamp
+  updated_at timestamp
+  deleted_at timestamp
+
+  Note: 'Master judul buku, soft delete aktif'
+}
+
+Table book_authors {
+  id bigint [pk, increment]
+  book_id bigint [not null]
+  author_id bigint [not null]
+  created_at timestamp
+  updated_at timestamp
+
+  Note: 'Pivot buku-penulis, tanpa soft delete'
+}
+
+Table book_copies {
+  id bigint [pk, increment]
+  book_id bigint [not null]
+  barcode varchar(100) [not null, unique]
+  inventory_code varchar(100) [not null, unique]
+  acquisition_date date
+  source enum('purchase','donation','other') [not null, default: 'purchase']
+  price decimal(12,2)
+  condition enum('new','good','fair','damaged','lost') [not null, default: 'good']
+  copy_status enum('available','borrowed','reserved','maintenance','lost') [not null, default: 'available']
+  notes text
+  created_at timestamp
+  updated_at timestamp
+  deleted_at timestamp
+
+  Note: 'Eksemplar fisik buku, soft delete aktif'
+}
+
+Table loans {
+  id bigint [pk, increment]
+  loan_code varchar(50) [not null, unique]
+  member_id bigint [not null]
+  loan_date date [not null]
+  due_date date [not null]
+  return_date date
+  status enum('borrowed','returned','partially_returned','overdue','lost') [not null, default: 'borrowed']
+  total_fine decimal(12,2) [not null, default: 0]
+  notes text
+  created_by bigint [not null]
+  approved_by bigint
+  created_at timestamp
+  updated_at timestamp
+
+  Note: '''
+  Header transaksi peminjaman.
+  Disarankan tidak soft delete karena ini data histori/audit.
+  '''
+}
+
+Table loan_details {
+  id bigint [pk, increment]
+  loan_id bigint [not null]
+  book_copy_id bigint [not null]
+  due_date date [not null]
+  returned_at timestamp
+  fine_amount decimal(12,2) [not null, default: 0]
+  condition_on_loan enum('new','good','fair','damaged') [not null, default: 'good']
+  condition_on_return enum('new','good','fair','damaged','lost')
+  status enum('borrowed','returned','overdue','lost') [not null, default: 'borrowed']
+  notes text
+  created_at timestamp
+  updated_at timestamp
+
+  Note: 'Detail transaksi peminjaman, disarankan tidak soft delete'
+}
+
+Table reservations {
+  id bigint [pk, increment]
+  member_id bigint [not null]
+  book_id bigint [not null]
+  reservation_date timestamp [not null]
+  expire_at timestamp
+  status enum('waiting','ready','cancelled','fulfilled','expired') [not null, default: 'waiting']
+  notes text
+  created_at timestamp
+  updated_at timestamp
+  deleted_at timestamp
+
+  Note: 'Reservasi buku, soft delete aktif'
+}
+
+Table fines {
+  id bigint [pk, increment]
+  loan_detail_id bigint [not null]
+  member_id bigint [not null]
+  amount decimal(12,2) [not null, default: 0]
+  reason enum('late_return','lost_book','damaged_book','other') [not null]
+  status enum('unpaid','paid','waived') [not null, default: 'unpaid']
+  paid_at timestamp
+  notes text
+  created_at timestamp
+  updated_at timestamp
+
+  Note: 'Data denda, disarankan tidak soft delete karena bagian dari audit transaksi'
+}
+
+Ref: role_user.user_id > users.id
+Ref: role_user.role_id > roles.id
+
+Ref: admin_profiles.user_id > users.id
+Ref: member_profiles.user_id > users.id
+
+Ref: registrations.user_id > users.id
+Ref: registrations.approved_by > users.id
+
+Ref: books.category_id > categories.id
+Ref: books.publisher_id > publishers.id
+Ref: books.shelf_id > shelves.id
+
+Ref: book_authors.book_id > books.id
+Ref: book_authors.author_id > authors.id
+
+Ref: book_copies.book_id > books.id
+
+Ref: loans.member_id > member_profiles.id
+Ref: loans.created_by > users.id
+Ref: loans.approved_by > users.id
+
+Ref: loan_details.loan_id > loans.id
+Ref: loan_details.book_copy_id > book_copies.id
+
+Ref: reservations.member_id > member_profiles.id
+Ref: reservations.book_id > books.id
+
+Ref: fines.loan_detail_id > loan_details.id
+Ref: fines.member_id > member_profiles.id
