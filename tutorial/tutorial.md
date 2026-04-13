@@ -596,6 +596,8 @@ php artisan make:filament-resource Loan --generate
 
 📄 [Copy dari: app/Filament/Resources/LoanResource/Pages/CreateLoan.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/LoanResource/Pages/CreateLoan.php)
 
+📄 [Copy dari: app/Filament/Resources/LoanResource/Pages/EditLoan.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/LoanResource/Pages/EditLoan.php)
+
 📄 [Copy dari: app/Filament/Resources/LoanResource/Pages/ListLoans.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/LoanResource/Pages/ListLoans.php)
 
 📄 [Copy dari: app/Filament/Resources/LoanResource/Pages/ViewLoan.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Resources/LoanResource/Pages/ViewLoan.php)
@@ -645,6 +647,16 @@ php artisan make:filament-page AdminProfile
 ### 9.15. Dashboard Page
 
 📄 [Copy dari: app/Filament/Pages/Dashboard.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Pages/Dashboard.php)
+
+### 9.16. Dashboard Widgets
+
+Buat folder `app/Filament/Widgets/` dan copy semua file berikut:
+
+📄 [Copy dari: app/Filament/Widgets/StatsOverview.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Widgets/StatsOverview.php)
+
+📄 [Copy dari: app/Filament/Widgets/LatestLoans.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Widgets/LatestLoans.php)
+
+📄 [Copy dari: app/Filament/Widgets/OverdueLoans.php](https://github.com/rifqi011/usk-perpus/blob/main/app/Filament/Widgets/OverdueLoans.php)
 
 ---
 
@@ -782,20 +794,24 @@ library-app/
 │   │   ├── Pages/
 │   │   │   ├── AdminProfile.php
 │   │   │   └── Dashboard.php
-│   │   └── Resources/
-│   │       ├── AdminResource/
-│   │       ├── AuthorResource/
-│   │       ├── BookResource/
-│   │       ├── CategoryResource/
-│   │       ├── FineResource/
-│   │       ├── GenreResource/
-│   │       ├── LoanResource/
-│   │       ├── LoanRuleResource/
-│   │       ├── MemberProfileResource/
-│   │       ├── PublisherResource/
-│   │       ├── RegistrationResource/
-│   │       ├── ShelfResource/
-│   │       └── SiteSettingResource/
+│   │   ├── Resources/
+│   │   │   ├── AdminResource/
+│   │   │   ├── AuthorResource/
+│   │   │   ├── BookResource/
+│   │   │   ├── CategoryResource/
+│   │   │   ├── FineResource/
+│   │   │   ├── GenreResource/
+│   │   │   ├── LoanResource/
+│   │   │   ├── LoanRuleResource/
+│   │   │   ├── MemberProfileResource/
+│   │   │   ├── PublisherResource/
+│   │   │   ├── RegistrationResource/
+│   │   │   ├── ShelfResource/
+│   │   │   └── SiteSettingResource/
+│   │   └── Widgets/
+│   │       ├── StatsOverview.php
+│   │       ├── LatestLoans.php
+│   │       └── OverdueLoans.php
 │   ├── Http/
 │   │   └── Middleware/
 │   │       └── EnsureUserIsAdmin.php
@@ -892,6 +908,7 @@ library-app/
 - Avatar admin di navbar
 - Clock di navbar
 - Navigation groups yang collapsible
+- **Dashboard** dengan statistik, peminjaman terbaru, dan daftar terlambat
 
 ---
 
